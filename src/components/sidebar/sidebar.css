@@ -26,7 +26,7 @@
 }
 
 .sideBar>.link>button:hover{
-    background-color: rgba(204, 26, 130,0.1);
+    background-color: rgba(204, 26, 130,0.1) !important;
 }
 
 .sideBar-bar{
@@ -57,7 +57,7 @@
     cursor: pointer;
 }
 .pad:hover{
-    background-color: rgba(0, 0, 255,0.1);
+    background-color: rgba(0, 0, 255,0.1) !important;
     border-radius: 8px;
 }
 .pad>p{
