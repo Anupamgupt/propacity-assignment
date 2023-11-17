@@ -3,8 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import Films from './pages/films/Films';
 import Home from './pages/home/Home';
-import { Provider } from 'react-redux';
-import store from './store/Store';
 import People from './pages/people/People';
 import Planet from './pages/planets/Planet';
 import Species from './pages/species/Species';
@@ -13,7 +11,6 @@ import Vehicles from './pages/vehicles/Vehicles';
 
 function App() {
   return (
-    <Provider store={store}>
       <BrowserRouter>
         <Navbar/>
         <Routes>
@@ -26,7 +23,6 @@ function App() {
           <Route path='/vehicles' element={<Vehicles/>}></Route>
         </Routes>
       </BrowserRouter>  
-    </Provider>
   );
 }
 

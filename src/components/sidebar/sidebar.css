@@ -5,14 +5,11 @@
     padding: 10px 14px 10px 16px;
     gap: 10px;
     min-width: 223px;
-    max-height: 100svh;
-
 }
 .link{
     text-decoration: none;
     cursor: pointer;
     border-radius: 6px;
-    /* background-color: red; */
 }
 .sideBar>.link>button{
     cursor: pointer;
@@ -43,7 +40,34 @@
 }
 .change{
     transition: all 0.5s ease-in-out ;
-    /* display: none; */
+}
+.it{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    font-size: 10px;
+    row-gap: 10px;
+}
+.pad{
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.pad:hover{
+    background-color: rgba(0, 0, 255,0.1);
+    border-radius: 8px;
+}
+.pad>p{
+    margin-left: 5px;
+}
+.ch{
+    margin-left: auto;
+}
+.pad>img{
+    width: 20px;
 }
 @media screen and (max-width:600px){
     .sidenotdis{

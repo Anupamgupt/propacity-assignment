@@ -1,7 +1,6 @@
 .film{
     display: flex;
     position: relative;
-    /* background-color: red; */
 }
 
 .side-main{
@@ -10,12 +9,10 @@
     right: 0;
     z-index: 3;
     transition: all 0.2s ease-in-out;
-    /* background-color: white; */
 }
 
 .flim-body{
     width: 100%;
-    /* background-color: green; */
 }
 .flim-head{
     display: flex;
@@ -65,7 +62,6 @@
     cursor: pointer;
 }
 .list-view{
-    /* background-color: red; */
     padding: 10px 20px 20px 20px;
    
 }
@@ -89,7 +85,6 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    /* background-color: red; */
     
 }
 
@@ -121,7 +116,7 @@
     }
     .name{
         width: 33.33%;
-        margin-right: 10px;
+        margin-right: 15px;
     }
     .direct{
         width: 33.33%;
@@ -129,5 +124,8 @@
     .date{
         margin-left: 10px;
         width: 33.33%;
+    }
+    .fl{
+        display: none !important;
     }
 }

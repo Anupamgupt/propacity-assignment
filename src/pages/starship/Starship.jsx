@@ -1,30 +1,26 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Card from "../../components/card/Card";
-import { Dots, Users, Vg, Vl } from "../../assets/images/images";
+import { Dots, Starimg, Users, Vg, Vl } from "../../assets/images/images";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { setStarship } from "../../store/StarshipSlice";
 import { setTranslate } from "../../store/SidebarSlice";
 import { setSide } from "../../store/SidebarContentSlice";
 import SideCard from "../../components/sideCard/SideCard";
+import Loader from "../loader/Loader";
 
 function Starship() {
   const [grid, setGrid] = useState(false);
   const handleClick = () => {
     setGrid((prev) => !prev);
-    // console.log(grid);
   };
   const dispath = useDispatch();
  
   const starships= useSelector((state) => state.starship);
-  //   if(films>0){
-    const translate=useSelector((state)=>state.sidebar);
-//   //   }
-//   if(starships){
-    
-//   }
+  const translate=useSelector((state)=>state.sidebar);
+  if(starships.length===0){
+    return <Loader/>
+  }
   return (
     <div className="film">
       <Sidebar />
@@ -43,7 +39,7 @@ function Starship() {
           </button>
         </div>
         {grid ? (
-          <div className="film-content">
+          <div className={translate?"film-content fl":" film-content"} >
             {starships.map((items,ind) => (
                <div onClick={()=>{
                 dispath(setTranslate(true))
@@ -61,13 +57,15 @@ function Starship() {
               <p className="date">HyperDrive Rating</p>
             </div>
             {starships.map((items,ind)=>(
-                <div className="list" onClick={()=>{
+                <div className={translate?"list fl":" list"}  style={{
+                  borderBottom:ind===(starships.length-1)?"1px solid transparent":""
+                }} onClick={()=>{
                   dispath(setTranslate(true))
                   dispath(setSide({ind,...items}))
                 }
                 }>
                     <div className="name">
-                        <img src={Users} className="" />
+                        <img src={Starimg} className="" />
                         {items.name}
                     </div>
                     <p className="direct">{items.model}</p>

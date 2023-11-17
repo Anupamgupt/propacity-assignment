@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, {  useState } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Card from "../../components/card/Card";
 import { Dots, Users, Vg, Vl } from "../../assets/images/images";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { setPeople } from "../../store/PeopleSlice";
 import SideCard from "../../components/sideCard/SideCard";
 import { setTranslate } from "../../store/SidebarSlice";
 import { setSide } from "../../store/SidebarContentSlice";
+import Loader from "../loader/Loader";
 
 function People() {
   const [grid, setGrid] = useState(false);
@@ -17,13 +16,12 @@ function People() {
   };
   const dispath = useDispatch();
   const people= useSelector((state) => state.people);
-  if(people.length>0){
-    console.log(people[1].species[0].split('/')[5]);
-  } 
- 
   const species=useSelector((state)=>state.species)
   const translate=useSelector((state)=>state.sidebar);
 
+  if(people.length===0 || species.length===0){
+    return <Loader/>
+  }
   return (
     <div className="film">
       <Sidebar/>
@@ -42,7 +40,7 @@ function People() {
           </button>
         </div>
         {grid ? (
-          <div className="film-content">
+          <div className={translate?"film-content fl":" film-content"} >
             {people.map((items,ind) => (
                <div onClick={()=>{
                 dispath(setTranslate(true))
@@ -60,7 +58,9 @@ function People() {
               <p className="date">Species</p>
             </div>
             {people.map((items,ind)=>(
-                <div className="list" onClick={()=>{
+                <div className={translate?"list fl":" list"} style={{
+                  borderBottom:ind===(people.length-1)?"1px solid transparent":""
+                }} onClick={()=>{
                   dispath(setTranslate(true))
                   dispath(setSide({ind,...items}))
                 }

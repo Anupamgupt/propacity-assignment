@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, {  useState } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Card from "../../components/card/Card";
-import { Dots, Users, Vg, Vl } from "../../assets/images/images";
+import { Dots, Vg, Vl,Species as sp} from "../../assets/images/images";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { setSpecies } from "../../store/SpeciesSlice";
 import { setTranslate } from "../../store/SidebarSlice";
 import { setSide } from "../../store/SidebarContentSlice";
 import SideCard from "../../components/sideCard/SideCard";
+import Loader from "../loader/Loader";
 
 function Species() {
   const [grid, setGrid] = useState(false);
@@ -19,6 +18,9 @@ function Species() {
   const planets= useSelector((state) => state.planets);
   const species= useSelector((state) => state.species);  
   const translate=useSelector((state)=>state.sidebar);
+  if(species.length===0 || planets.length===0){
+    return <Loader/>
+  }
   return (
     <div className="film">
       <Sidebar />
@@ -37,7 +39,7 @@ function Species() {
           </button>
         </div>
         {grid ? (
-          <div className="film-content">
+          <div className={translate?"film-content fl":" film-content"} >
             {species.map((items,ind) => (
                <div onClick={()=>{
                 dispath(setTranslate(true))
@@ -55,13 +57,15 @@ function Species() {
               <p className="date">Lifespan</p>
             </div>
             {species.map((items,ind)=>(
-                <div className="list" onClick={()=>{
+                <div className={translate?"list fl":" list"}  style={{
+                  borderBottom:ind===(species.length-1)?"1px solid transparent":""
+                }} onClick={()=>{
                   dispath(setTranslate(true))
                   dispath(setSide({ind,...items}))
                 }
                 }>
                     <div className="name">
-                        <img src={Users} className="" />
+                        <img src={sp} className="" />
                         {items.name}
                     </div>
                     <p className="direct">{items.homeworld && planets.length ? planets[8].name:"NA"}</p>

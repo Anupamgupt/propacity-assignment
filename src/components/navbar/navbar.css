@@ -2,7 +2,6 @@
     display: flex;
     align-items: center;
     justify-content:space-between;
-    /* background-color: red; */
     padding: 20px;
 }
 .logo{
@@ -16,7 +15,15 @@
 
 @media screen and (max-width:600px) {
     .men{
-        display: block;
-        color: white    ;
+        display: flex;
+        color: white;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+    .men>div{
+        width: 20px;
+        border: 1px solid white;
+        background-color: aqua;
     }
 }

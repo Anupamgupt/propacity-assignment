@@ -1,6 +1,5 @@
 .side-Card-main{
     display: flex;
-    /* background-color: red; */
     height: 90svh;
     overflow: hidden;
     transition: all 0.2s ease-in-out ;
@@ -11,7 +10,6 @@
 .side-right{
     z-index: 100;
     max-width: 400px;
-    /* flex: 3; */
     background-color: #03123D;
     overflow: scroll;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -28,7 +26,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* background-color: red; */
     padding: 16px 20px 16px 20px;
     border-bottom: 1px solid #FFFFFF;
 }

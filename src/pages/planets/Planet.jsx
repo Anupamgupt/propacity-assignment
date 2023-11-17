@@ -1,27 +1,25 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Card from "../../components/card/Card";
-import { Dots, Users, Vg, Vl } from "../../assets/images/images";
+import { Dots,  Vg, Vl ,Planet as Pl} from "../../assets/images/images";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { setPlanets } from "../../store/PlanetSlice";
 import { setTranslate } from "../../store/SidebarSlice";
 import { setSide } from "../../store/SidebarContentSlice";
 import SideCard from "../../components/sideCard/SideCard";
+import Loader from "../loader/Loader";
 
 function Planet() {
   const [grid, setGrid] = useState(false);
   const handleClick = () => {
     setGrid((prev) => !prev);
-    // console.log(grid);
   };
   const dispath = useDispatch();
   const planets= useSelector((state) => state.planets);
   const translate=useSelector((state)=>state.sidebar);
-  //   if(films>0){
-  console.log(planets);
-  //   }
+  if(planets.length===0){
+    return <Loader/>
+  }
   return (
     <div className="film">
       <Sidebar />
@@ -40,7 +38,7 @@ function Planet() {
           </button>
         </div>
         {grid ? (
-          <div className="film-content">
+          <div className={translate?"film-content fl":" film-content"} >
             {planets.map((items,ind) => (
                 <div onClick={()=>{
                   dispath(setTranslate(true))
@@ -58,13 +56,15 @@ function Planet() {
               <p className="date">Gravity</p>
             </div>
             {planets.map((items,ind)=>(
-                <div className="list" onClick={()=>{
+                <div className={translate?"list fl":" list"} style={{
+                  borderBottom:ind===(planets.length-1)?"1px solid transparent":""
+                }} onClick={()=>{
                   dispath(setTranslate(true))
                   dispath(setSide({ind,...items}))
                 }
                 }>
                     <div className="name">
-                        <img src={Users} className="" />
+                        <img src={Pl} className="" />
                         {items.name}
                     </div>
                     <p className="direct">{items.climate}</p>
