@@ -36,6 +36,7 @@ function People() {
   //   }
   return (
     <div className="film">
+      <Sidebar/>
        { translate   && <div  className="side-main" style={{ transform: translate ? 'translateX(0%)' : 'translateX(100%)' }
 }>
        <SideCard translate={translate}/>
