@@ -14,25 +14,11 @@ function Species() {
   const [grid, setGrid] = useState(false);
   const handleClick = () => {
     setGrid((prev) => !prev);
-    // console.log(grid);
   };
   const dispath = useDispatch();
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("https://swapi.dev/api/species");
-        dispath(setSpecies(response.data.results));
-        console.log(response.data.results)
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
-  }, [dispath]);
-  const species= useSelector((state) => state.species);
-  //   if(films>0){
-    const translate=useSelector((state)=>state.sidebar);
-  //   }
+  const planets= useSelector((state) => state.planets);
+  const species= useSelector((state) => state.species);  
+  const translate=useSelector((state)=>state.sidebar);
   return (
     <div className="film">
       <Sidebar />
@@ -78,7 +64,7 @@ function Species() {
                         <img src={Users} className="" />
                         {items.name}
                     </div>
-                    <p className="direct">{items.climate}</p>
+                    <p className="direct">{items.homeworld && planets.length ? planets[8].name:"NA"}</p>
                     <div className="date">
                     {items.average_lifespan}
                     <img src={Dots}></img>

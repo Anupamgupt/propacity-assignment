@@ -17,18 +17,6 @@ function Planet() {
     // console.log(grid);
   };
   const dispath = useDispatch();
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("https://swapi.dev/api/planets");
-        dispath(setPlanets(response.data.results));
-        console.log(response.data.results)
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
-  }, [dispath]);
   const planets= useSelector((state) => state.planets);
   const translate=useSelector((state)=>state.sidebar);
   //   if(films>0){

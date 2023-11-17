@@ -14,26 +14,16 @@ function People() {
   const [grid, setGrid] = useState(false);
   const handleClick = () => {
     setGrid((prev) => !prev);
-    // console.log(grid);
   };
   const dispath = useDispatch();
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("https://swapi.dev/api/people");
-        dispath(setPeople(response.data.results));
-        console.log(response.data.results)
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
-  }, [dispath]);
   const people= useSelector((state) => state.people);
+  if(people.length>0){
+    console.log(people[1].species[0].split('/')[5]);
+  } 
+ 
+  const species=useSelector((state)=>state.species)
   const translate=useSelector((state)=>state.sidebar);
-  //   if(films>0){
-  
-  //   }
+
   return (
     <div className="film">
       <Sidebar/>
@@ -81,7 +71,7 @@ function People() {
                     </div>
                     <p className="direct">{items.birth_year}</p>
                     <div className="date">
-                    {items.release_date}
+                    {items.species && items.species[0] ? species[items.species[0].split('/')[5]-1].name:"NA"}
                     <img src={Dots}></img>
                     </div>
                 </div>

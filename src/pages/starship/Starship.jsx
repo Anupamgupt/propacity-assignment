@@ -17,18 +17,7 @@ function Starship() {
     // console.log(grid);
   };
   const dispath = useDispatch();
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("https://swapi.dev/api/starships");
-        dispath(setStarship(response.data.results));
-        console.log(response)
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
-  }, [dispath]);
+ 
   const starships= useSelector((state) => state.starship);
   //   if(films>0){
     const translate=useSelector((state)=>state.sidebar);

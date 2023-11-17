@@ -17,25 +17,8 @@ function Vehicles() {
     // console.log(grid);
   };
   const dispath = useDispatch();
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("https://swapi.dev/api/vehicles");
-        dispath(setVehicle(response.data.results));
-        console.log(response)
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
-  }, [dispath]);
   const vehicles= useSelector((state) => state.vehicle);
-  //   if(films>0){
-    const translate=useSelector((state)=>state.sidebar);
-//   //   }
-//   if(starships){
-    
-//   }
+  const translate=useSelector((state)=>state.sidebar);
   return (
     <div className="film">
       <Sidebar />

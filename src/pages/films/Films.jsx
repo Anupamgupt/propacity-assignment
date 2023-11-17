@@ -18,17 +18,6 @@ function Films() {
     // console.log(grid);
   };
   const dispath = useDispatch();
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("https://swapi.dev/api/films/");
-        dispath(setFilm(response.data.results));
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
-  }, [dispath]);
   const films = useSelector((state) => state.films);
   const translate=useSelector((state)=>state.sidebar);
   return (
