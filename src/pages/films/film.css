@@ -1,0 +1,133 @@
+.film{
+    display: flex;
+    position: relative;
+    /* background-color: red; */
+}
+
+.side-main{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    transition: all 0.2s ease-in-out;
+    /* background-color: white; */
+}
+
+.flim-body{
+    width: 100%;
+    /* background-color: green; */
+}
+.flim-head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px 12px 20px;
+}
+
+.flim-head>p{
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+}
+
+.film-content{
+    padding: 10px 20px 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.film-btns{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    column-gap: 2px;
+    cursor: pointer;
+
+}
+
+.img-st{
+    width: 100%;
+}
+
+.vl{
+    background-color:  #03123D;
+}
+
+.text-film{
+    color: Grey;
+    font-size: 14px;
+    margin-right: 5px;
+    margin-left: -2px;
+}
+.list:hover{
+    background-color: rgba(0, 0, 0,0.3);
+    cursor: pointer;
+}
+.list-view{
+    /* background-color: red; */
+    padding: 10px 20px 20px 20px;
+   
+}
+
+.list-view>div{
+   
+    display: flex;
+    align-items: center;
+    padding: 1rem 1rem;
+    color: white;
+    font-size: 14px;
+}
+
+.list-head{
+    background-color: #4D5875;
+    border-radius: 6px;
+}
+
+.name{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* background-color: red; */
+    
+}
+
+.name>img{
+    width: 18px;
+}
+
+.direct{
+    width: 25%;
+}
+
+.list{
+    border-bottom: #DEDEDE 1px solid;
+}
+
+.date{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 45%;
+}
+
+@media screen and (max-width:600px) {
+    .film{
+        flex-direction: column;
+    }
+    .film-content{
+        flex-direction: column;
+    }
+    .name{
+        width: 33.33%;
+        margin-right: 10px;
+    }
+    .direct{
+        width: 33.33%;
+    }
+    .date{
+        margin-left: 10px;
+        width: 33.33%;
+    }
+}

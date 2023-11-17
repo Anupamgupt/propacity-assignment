@@ -1,0 +1,22 @@
+.navbar-head{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    /* background-color: red; */
+    padding: 20px;
+}
+.logo{
+    width: 72px;
+    height: 36px;
+}
+.men{
+    display: none;
+
+}
+
+@media screen and (max-width:600px) {
+    .men{
+        display: block;
+        color: white    ;
+    }
+}

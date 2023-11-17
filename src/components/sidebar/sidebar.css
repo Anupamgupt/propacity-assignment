@@ -1,0 +1,52 @@
+.sideBar{
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 14px 10px 16px;
+    gap: 10px;
+    min-width: 223px;
+    max-height: 100svh;
+
+}
+.link{
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 6px;
+    /* background-color: red; */
+}
+.sideBar>.link>button{
+    cursor: pointer;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    padding: 8px 12px 8px 12px;
+    gap: 4px;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 6px;
+    transition: all 0.5s ease;
+}
+
+.sideBar>.link>button:hover{
+    background-color: rgba(204, 26, 130,0.1);
+}
+
+.sideBar-bar{
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    color: white;
+}
+.sideBar-bar>p{
+    font-size: 14px;
+}
+
+@media screen and (max-width:600px){
+    .sidenotdis{
+        display: none;
+    }
+    .sidedis{
+        display: flex;
+    }
+}

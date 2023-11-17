@@ -1,0 +1,8 @@
+.dashboard{
+    padding-top: 30px;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 500px; */
+}
