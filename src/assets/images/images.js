@@ -19,6 +19,14 @@ import film2 from './film-2.jpeg'
 import film3 from './film-6.jpeg'
 import film4 from './film-4.jpeg'
 import film5 from './film-5.jpeg'
+import Lock from './LockSimple.svg'
+import zero from './Frame.svg'
+import one from './Frame (1).svg'
+import two from './Frame (2).svg'
+import three from './Frame (3).svg'
+import four from './Frame (4).svg'
+import five from './Frame (5).svg'
+import alert from './alert-circle.svg'
 
 
-export {Starwars,Folder,Right,Filmreel,Dots,Vg,Vl,Stars,Users,Close,film0,film1,film2,film3,film4,film5,Planet,Species,Vehicle,Starimg,loader};
+export {Starwars,Folder,Right,Filmreel,Dots,Vg,Vl,Stars,Users,Close,film0,film1,film2,film3,film4,film5,Planet,Species,Vehicle,Starimg,loader,Lock,one,two,three,four,five,zero,alert};

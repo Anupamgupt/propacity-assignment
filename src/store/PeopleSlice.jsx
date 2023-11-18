@@ -13,7 +13,7 @@ const peopleSlice= createSlice({
             return state;
         },
         removePeople(state,action){
-            return state.filter((item)=>item.id !== action.payload);
+            return state.filter((item,ind)=>ind !== action.payload);
         },
     }
 })

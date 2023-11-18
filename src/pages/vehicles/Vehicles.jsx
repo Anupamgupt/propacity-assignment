@@ -8,6 +8,9 @@ import { setTranslate } from "../../store/SidebarSlice";
 import { setSide } from "../../store/SidebarContentSlice";
 import SideCard from "../../components/sideCard/SideCard";
 import Loader from "../loader/Loader";
+import DropDown from "../../components/dropDown/DropDown";
+import { setdf } from "../../store/DropSlice";
+import Modal from "../../components/modal/Modal";
 
 function Vehicles() {
   const [grid, setGrid] = useState(false);
@@ -17,11 +20,14 @@ function Vehicles() {
   const dispath = useDispatch();
   const vehicles= useSelector((state) => state.vehicle);
   const translate=useSelector((state)=>state.sidebar);
+  const show=useSelector((state)=>state.drop)
+  const modal=useSelector((state)=>state.modal)
   if(vehicles.length===0){
     return <Loader/>
   }
   return (
     <div className="film">
+      {modal && <div className="gg" ><Modal/></div>} 
       <Sidebar />
       { translate   && <div  className="side-main" style={{ transform: translate ? 'translateX(0%)' : 'translateX(100%)' }
 }>
@@ -43,8 +49,10 @@ function Vehicles() {
                <div onClick={()=>{
                 dispath(setTranslate(true))
                 dispath(setSide({ind,...items}))
-              }}>
+                dispath(setdf());
+              }} className="c">
               <Card key={ind} ind={ind} title={items.name} />
+              {show.show && show.id===ind && <DropDown/>}
               </div>
             ))}
           </div>

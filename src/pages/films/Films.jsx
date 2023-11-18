@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import "./film.css";
 import Card from "../../components/card/Card";
@@ -9,6 +9,9 @@ import SideCard from "../../components/sideCard/SideCard";
 import { setTranslate } from "../../store/SidebarSlice";
 import { setSide } from "../../store/SidebarContentSlice";
 import Loader from "../loader/Loader";
+import DropDown from "../../components/dropDown/DropDown";
+import { setdf } from "../../store/DropSlice";
+import Modal from "../../components/modal/Modal";
 
 function Films() {
   const [grid, setGrid] = useState(true);
@@ -18,6 +21,8 @@ function Films() {
   const dispath = useDispatch();
   const films = useSelector((state) => state.films);
   const translate=useSelector((state)=>state.sidebar);
+  const show=useSelector((state)=>state.drop)
+  const modal=useSelector((state)=>state.modal)
   if(films.length===0){
     return <>
       <Loader/>
@@ -25,6 +30,7 @@ function Films() {
   }
   return (
     <div className="film">
+     {modal && <div className="gg" ><Modal/></div>} 
       <Sidebar />
      { translate   && <div  className="side-main" style={{ transform: translate ? 'translateX(0%)' : 'translateX(100%)' }
 }>
@@ -47,8 +53,10 @@ function Films() {
               <div onClick={()=>{
                 dispath(setTranslate(true))
                 dispath(setSide({ind,...items}))
-              }}>
+                dispath(setdf());
+              }} className="c">
                 <Card key={ind} ind={ind} title={items.title} />
+                {show.show && show.id===ind && <DropDown/>}
               </div>
               
             ))}

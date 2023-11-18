@@ -8,6 +8,8 @@ import starshipReducer from "./StarshipSlice"
 import sidebarReducer from "./SidebarSlice"
 import sidebarContentReducer from "./SidebarContentSlice"
 import menuReducer from "./MenuSlice"
+import dropReducer from "./DropSlice"
+import modalReducer from "./ModalSlice"
 
 
 const Store = configureStore({
@@ -21,6 +23,8 @@ const Store = configureStore({
         sidebar:sidebarReducer,
         sideContent:sidebarContentReducer,
         menu:menuReducer,
+        drop:dropReducer,
+        modal:modalReducer
     }
 })
 

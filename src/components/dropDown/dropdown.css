@@ -1,0 +1,44 @@
+.dd{
+    position: absolute;
+    bottom:-280px;
+    right: -30px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000 !important;
+    width:172px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    row-gap: 4px;
+    background-color: white;
+    border-radius: 8px;
+
+}
+
+.dd>button{
+    display: flex;
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    gap:10px;
+    cursor: pointer;
+
+}
+.dd>button>p{
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.dd>button:hover{
+    background-color: #F1F1F5;
+}
+
+.del{
+   color: #F15454;
+}
+
+@media screen and (max-width:600px){
+    .dd{
+        right: -10px;
+    }
+}

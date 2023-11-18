@@ -13,7 +13,7 @@ const filmSlice= createSlice({
             return state
         },
         removeFilm(state,action){
-            return state.filter((item)=>item.id !== action.payload);
+            return state.filter((item,ind)=>ind !== action.payload);
         },
     }
 })
